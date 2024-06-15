@@ -1,0 +1,72 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Стили для секции поддержки */
+.support-section {
+    padding: 80px 0;
+    background-color: #000;
+}
+
+.section-title {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.section-subtitle {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+/* Стили для карточек поддержки */
+.support-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+    margin-bottom: 30px;
+}
+
+.support-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.card-description {
+    color: #6c757d;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    background-color: #FBC638;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #FFD700;
+}

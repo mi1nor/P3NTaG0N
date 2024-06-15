@@ -1,0 +1,62 @@
+.container {
+    padding: 30px;
+}
+
+.invite-friend-section {
+    margin-top: 50px;
+}
+
+.invite-friend-section h3,
+.invite-friend-section p {
+    margin-bottom: 20px;
+}
+
+.form-label,
+.btn-primary {
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: #FBC638;
+    border-color: #FBC638;
+}
+
+.btn-primary:hover {
+    background-color: #FFD54F;
+    border-color: #FFD54F;
+}
+
+.form-control {
+    background-color: #333;
+    color: #fff;
+    border-color: #6C757D;
+}
+
+.form-control:focus {
+    background-color: #333;
+    color: #fff;
+    border-color: #FBC638;
+    box-shadow: 0 0 0 0.25rem rgba(251, 198, 56, 0.5);
+}
+
+/* Animation */
+.animated-heart {
+    position: absolute;
+    color: #FFD700;
+    font-size: 24px;
+    animation: heartBeat 1s linear infinite;
+}
+
+@keyframes heartBeat {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

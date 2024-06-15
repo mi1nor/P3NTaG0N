@@ -1,20 +1,26 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subway Inferno</title>
+    <title>Pentagon | Subway Inferno</title>
     <link rel="stylesheet" href="./styles/bootstrap.min.css">
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/adaptive.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favi/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favi/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favi/favicon-16x16.png">
+    <link rel="manifest" href="images/favi/site.webmanifest">
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-light bg-body">
         <div class="container-fluid">
-            <a class="navbar-brand" href="./news.html">Лого</a>
+            <a class="navbar-brand" href="./index.html">
+              <img src="/images/logo.png" width="40px" height="40px" class="my-logo">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
                 aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -28,7 +34,7 @@
                             Информация об игре
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                            <li><a class="dropdown-item" href="#nav-hero">Герои</a></li>
+                          <li><a class="dropdown-item" href="./index.html#nav-hero">Герои</a></li>
                             <li><a class="dropdown-item" href="./news.html">Описания обновлений</a></li>
                             <li>
                                 <hr class="dropdown-divider">
@@ -41,8 +47,7 @@
                             Карты
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                            <li><a class="dropdown-item" href="#">В разработке</a></li>
-                            <li><a class="dropdown-item" href="#">В разработке</a></li>
+                            <li><a class="dropdown-item" href="./maps.html">Локация метро</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -58,10 +63,10 @@
                             Сообщество
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                            <li><a class="dropdown-item" href="./community.html">Форумы</a></li>
-                            <li><a class="dropdown-item" href="./community.html">Рейтинговые таблицы</a></li>
-                            <li><a class="dropdown-item" href="./community.html">Пригласи друга</a></li>
-                            <li><a class="dropdown-item" href="./community.html">Программа поддержки</a></li>
+                            <li><a class="dropdown-item" href="./forum.html">Форумы</a></li>
+                            <li><a class="dropdown-item" href="./tables.html">Рейтинговые таблицы</a></li>
+                            <li><a class="dropdown-item" href="./invited.html">Пригласи друга</a></li>
+                            <li><a class="dropdown-item" href="./loyalty.html">Программа поддержки</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -93,10 +98,10 @@
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="5000">
-                    <img src="images/1.webp" class="spaces-for-carousel d-block w-100" alt="...">
+                    <img src="images/1.png" class="spaces-for-carousel d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item" data-bs-interval="5000">
-                    <img src="images/2.webp" class="spaces-for-carousel d-block w-100" alt="...">
+                    <img src="images/2.png" class="spaces-for-carousel d-block w-100" alt="...">
                 </div>
             </div>
             <div class="wrapper">
@@ -135,18 +140,15 @@
 
     <section id="my-block-info">
         <div class="container">
-
             <div class="row">
                 <div class="col-md-6 col-sm-12">
                     <div class="block-info">
-                        <img src="images/2.webp" style="image-rendering: pixelated;">
+                        <img src="images/2.png" style="image-rendering: pixelated;">
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12 d-flex align-items-center">
                     <div id="nav-hero" class="block-info-text">
-                        Ваша задача выжить в пост апокалипсическом мире метро. А так же выбраться на поверхность до
-                        нового ядерного
-                        удара и покинуть зону поражения
+                        Ваша задача выжить в пост апокалипсическом мире метро, где царствует без законие и опасность. Успеешь ли ты выбраться из подземки до нового ядерного удара или нет? 
                     </div>
                 </div>
             </div>
@@ -154,7 +156,7 @@
             <div class="row">
                 <div class="col-md-6 col-sm-12 d-flex align-items-center">
                     <div class="block-info-text">
-                        На своем пути вы встретите множество врагов...
+                        На своем пути вы встретите множество опасных врагов так и союзников которые помогут тебе или предадут в шаге от твоей цели.
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
@@ -167,162 +169,150 @@
         </div>
     </section>
 
-    <!-- <div class="border-top"></div> -->
-
     <section style="color: #f3f2f2; background-color: #000;" class="my-reviews">
-        <div class="container py-5">
-          <div class="row d-flex justify-content-center">
-            <div class="col-md-10 col-xl-8 text-center">
-              <h3 class="fw-bold mb-4">Отзывы про игру</h3>
-              <p class="mb-4 pb-2 mb-md-5 pb-md-0">
-                Что думает Моршу по этому поводу?
-              </p>
+      <div class="container py-5">
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-10 col-xl-8 text-center">
+            <h3 class="fw-bold mb-4">Отзывы</h3>
+            <p class="mb-4 pb-2 mb-md-5 pb-md-0">
+              Что думают игроки про игру?
+            </p>
+          </div>
+        </div>
+        <div class="row text-center">
+          <div class="col-md-4 mb-4 mb-md-0">
+            <div class="card my-card mx-auto">
+              <div class="card-body py-4 mt-2">
+                <div class="d-flex justify-content-center mb-4">
+                  <img src="images/spalker-3.png"
+                    class="rounded-circle shadow-1-strong" width="100" height="100" />
+                </div>
+                <h5 class="font-weight-bold">Борода</h5>
+                <h6 class="font-weight-bold my-3">Новичок</h6>
+                <ul class="list-unstyled d-flex justify-content-center">
+                  <li>
+                    <i class="fas fa-star fa-sm text-info"></i>
+                  </li>
+                  <li>
+                    <i class="fas fa-star fa-sm text-info"></i>
+                  </li>
+                  <li>
+                    <i class="fas fa-star fa-sm text-info"></i>
+                  </li>
+                  <li>
+                    <i class="fas fa-star fa-sm text-info"></i>
+                  </li>
+                  <li>
+                    <i class="fas fa-star-half-alt fa-sm text-info"></i>
+                  </li>
+                </ul>
+                <p class="mb-2">
+                  <i class="fas fa-quote-left pe-2"></i>Это самая лучшая игра в которую я играл
+                </p>
+              </div>
             </div>
           </div>
-      
-          <div class="row text-center">
-            <div class="col-md-4 mb-4 mb-md-0">
-              <div class="card">
-                <div class="card-body py-4 mt-2">
-                  <div class="d-flex justify-content-center mb-4">
-                    <img src="game-main/Images/Morshu.png" style="image-rendering: pixelated;"
-                      class="rounded-circle shadow-1-strong" width="100" height="100" />
-                  </div>
-                  <h5 class="font-weight-bold">Моршу</h5>
-                  <h6 class="font-weight-bold my-3">Генеральный директор</h6>
-                  <ul class="list-unstyled d-flex justify-content-center">
-                    <li>
-                      <i class="fas fa-star fa-sm text-info"></i>
-                    </li>
-                    <li>
-                      <i class="fas fa-star fa-sm text-info"></i>
-                    </li>
-                    <li>
-                      <i class="fas fa-star fa-sm text-info"></i>
-                    </li>
-                    <li>
-                      <i class="fas fa-star fa-sm text-info"></i>
-                    </li>
-                    <li>
-                      <i class="fas fa-star-half-alt fa-sm text-info"></i>
-                    </li>
-                  </ul>
-                  <p class="mb-2">
-                    <i class="fas fa-quote-left pe-2"></i>Ты рюкзак мне принёс?
-                  </p>
+          <div class="col-md-4 mb-4 mb-md-0">
+            <div class="card my-card mx-auto">
+              <div class="card-body py-4 mt-2">
+                <div class="d-flex justify-content-center mb-4">
+                  <img src="images/spalker-1.png"
+                    class="rounded-circle shadow-1-strong" width="100" height="100" />
                 </div>
+                <h5 class="font-weight-bold">Васян</h5>
+                <h6 class="font-weight-bold my-3">Опытный</h6>
+                <ul class="list-unstyled d-flex justify-content-center">
+                  <li>
+                    <i class="fas fa-star fa-sm text-info"></i>
+                  </li>
+                  <li>
+                    <i class="fas fa-star fa-sm text-info"></i>
+                  </li>
+                  <li>
+                    <i class="fas fa-star fa-sm text-info"></i>
+                  </li>
+                  <li>
+                    <i class="fas fa-star fa-sm text-info"></i>
+                  </li>
+                  <li>
+                    <i class="fas fa-star fa-sm text-info"></i>
+                  </li>
+                </ul>
+                <p class="mb-2">
+                  <i class="fas fa-quote-left pe-2"></i>Самая имбовая игра, каждый день напролёт
+                </p>
               </div>
             </div>
-            <div class="col-md-4 mb-4 mb-md-0">
-              <div class="card">
-                <div class="card-body py-4 mt-2">
-                  <div class="d-flex justify-content-center mb-4">
-                    <img src="game-main/Images/Morshu.png" style="image-rendering: pixelated;"
-                      class="rounded-circle shadow-1-strong" width="100" height="100" />
-                  </div>
-                  <h5 class="font-weight-bold">Моршу 2</h5>
-                  <h6 class="font-weight-bold my-3">Генеральный директор</h6>
-                  <ul class="list-unstyled d-flex justify-content-center">
-                    <li>
-                      <i class="fas fa-star fa-sm text-info"></i>
-                    </li>
-                    <li>
-                      <i class="fas fa-star fa-sm text-info"></i>
-                    </li>
-                    <li>
-                      <i class="fas fa-star fa-sm text-info"></i>
-                    </li>
-                    <li>
-                      <i class="fas fa-star fa-sm text-info"></i>
-                    </li>
-                    <li>
-                      <i class="fas fa-star fa-sm text-info"></i>
-                    </li>
-                  </ul>
-                  <p class="mb-2">
-                    <i class="fas fa-quote-left pe-2"></i>Я тебя найду!
-                  </p>
+          </div>
+          <div class="col-md-4 mb-0">
+            <div class="card my-card mx-auto">
+              <div class="card-body py-4 mt-2">
+                <div class="d-flex justify-content-center mb-4">
+                  <img src="images/spalker-2.png"
+                    class="rounded-circle shadow-1-strong" width="100" height="100" />
                 </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-0">
-              <div class="card">
-                <div class="card-body py-4 mt-2">
-                  <div class="d-flex justify-content-center mb-4">
-                    <img src="game-main/Images/Morshu.png" style="image-rendering: pixelated;"
-                      class="rounded-circle shadow-1-strong" width="100" height="100" />
-                  </div>
-                  <h5 class="font-weight-bold">Моршу 99</h5>
-                  <h6 class="font-weight-bold my-3">Генеральный директор</h6>
-                  <ul class="list-unstyled d-flex justify-content-center">
-                    <li>
-                      <i class="fas fa-star fa-sm text-info"></i>
-                    </li>
-                    <li>
-                      <i class="fas fa-star fa-sm text-info"></i>
-                    </li>
-                    <li>
-                      <i class="fas fa-star fa-sm text-info"></i>
-                    </li>
-                    <li>
-                      <i class="fas fa-star fa-sm text-info"></i>
-                    </li>
-                    <li>
-                      <i class="far fa-star fa-sm text-info"></i>
-                    </li>
-                  </ul>
-                  <p class="mb-2">
-                    <i class="fas fa-quote-left pe-2"></i>Я тебя спас и в благородство...
-                  </p>
-                </div>
+                <h5 class="font-weight-bold">Кощей</h5>
+                <h6 class="font-weight-bold my-3">Профессионал</h6>
+                <ul class="list-unstyled d-flex justify-content-center">
+                  <li>
+                    <i class="fas fa-star fa-sm text-info"></i>
+                  </li>
+                  <li>
+                    <i class="fas fa-star fa-sm text-info"></i>
+                  </li>
+                  <li>
+                    <i class="fas fa-star fa-sm text-info"></i>
+                  </li>
+                  <li>
+                    <i class="fas fa-star fa-sm text-info"></i>
+                  </li>
+                  <li>
+                    <i class="far fa-star fa-sm text-info"></i>
+                  </li>
+                </ul>
+                <p class="mb-2">
+                  <i class="fas fa-quote-left pe-2"></i>Моя первая игра, ставлю пять звёзд из пяти
+                </p>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>  
 
       <div class="container">
         <footer class="py-5">
           <div class="row">
             <div class="col-2">
               <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="#" class="fw-bold white-text">Играть</a></li>
-                <li class="nav-item mb-2"><a href="#" class="fw-bold gray-text">Главная</a></li>
-                <li class="nav-item mb-2"><a href="#" class="fw-bold gray-text">Новости</a></li>
-                <li class="nav-item mb-2"><a href="#" class="fw-bold gray-text">Магазин</a></li>
-                <li class="nav-item mb-2"><a href="#" class="fw-bold gray-text">Сообщество</a></li>
+                <li class="nav-item mb-2 sm-footer"><a href="#" class="fw-bold gray-text">Главная</a></li>
+                <li class="nav-item mb-2 sm-footer"><a href="#" class="fw-bold gray-text">Карта</a></li>
               </ul>
             </div>
       
             <div class="col-2">
               <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="#" class="fw-bold white-text">Играть</a></li>
-                <li class="nav-item mb-2"><a href="#" class="fw-bold gray-text">Главная</a></li>
-                <li class="nav-item mb-2"><a href="#" class="fw-bold gray-text">Новости</a></li>
-                <li class="nav-item mb-2"><a href="#" class="fw-bold gray-text">Магазин</a></li>
-                <li class="nav-item mb-2"><a href="#" class="fw-bold gray-text">Сообщество</a></li>
+                <li class="nav-item mb-2 sm-footer"><a href="/forum.html" class="fw-bold gray-text">Форум</a></li>
+                <li class="nav-item mb-2 sm-footer"><a href="/news.html" class="fw-bold gray-text">Новости</a></li>
               </ul>
             </div>
       
             <div class="col-2">
               <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="#" class="fw-bold white-text">Играть</a></li>
-                <li class="nav-item mb-2"><a href="#" class="fw-bold gray-text">Главная</a></li>
-                <li class="nav-item mb-2"><a href="#" class="fw-bold gray-text">Новости</a></li>
-                <li class="nav-item mb-2"><a href="#" class="fw-bold gray-text">Магазин</a></li>
-                <li class="nav-item mb-2"><a href="#" class="fw-bold gray-text">Сообщество</a></li>
+                <li class="nav-item mb-2 sm-footer"><a href="/shop.html" class="fw-bold gray-text">Внутриигровой контент</a></li>
+                <li class="nav-item mb-2 sm-footer"><a href="/merch.html" class="fw-bold gray-text">Сувенирная продукция</a></li>
               </ul>
             </div>
-      
+
             <div class="col-4 offset-1">
               <form>
-                <h5 class="fw-bold">Подпишитесь на новости!</h5>
-                <p>Ежемесячный дайджест всего нового и интересного от нас</p>
+                <h5 class="fw-bold sm-footer">Подпишитесь на новости!</h5>
+                <p class="sm-footer">Ежемесячный дайджест всего нового и интересного от нас</p>
                 <div class="d-flex w-100 gap-2">
                   <label for="newsletter1" class="visually-hidden">Электронный адрес</label>
-                  <input id="newsletter1" type="text" class="form-control" placeholder="Электронный адрес">
+                  <input id="newsletter1" type="text" class="form-control sm-footer" placeholder="Электронный адрес">
                   <button class="btn btn-dark">
-                    <a class="text-light fw-bold" href="#">Подписаться</a>
+                    <a class="text-light fw-bold sm-footer" href="#">Подписаться</a>
                 </button>
                 </div>
               </form>
@@ -330,20 +320,10 @@
           </div>
       
           <div class="d-flex justify-content-between py-4 my-4 border-top">
-            <p>© 2024 Subway Inferno, Inc.</p>
+            <p>© 2024 Pentagon | Subway Inferno, Inc.</p>
             <ul class="list-unstyled d-flex">
                 <li class="ms-3">
-                    <a class="link" href="#">
-                      <img src="images/vk-ico.svg" width="24px" height="24px">
-                    </a>
-                </li>
-                <li class="ms-3">
-                    <a class="link" href="#">
-                      <img src="images/vk-ico.svg" width="24px" height="24px">
-                    </a>
-                </li>
-                <li class="ms-3">
-                    <a class="link" href="#">
+                    <a class="#" href="#">
                       <img src="images/vk-ico.svg" width="24px" height="24px">
                     </a>
                 </li>
@@ -352,6 +332,7 @@
         </footer>
       </div>
 
+    <script src="./scripts/script.js"></script>
     <script src="./scripts/bootstrap.bundle.min.js"></script>
 </body>
 

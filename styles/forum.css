@@ -1,0 +1,50 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.list-group-item {
+    background-color: #1a1a1a;
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.list-group-item:hover {
+    background-color: #333;
+}
+
+.list-group-item-action:hover {
+    background-color: #333;
+}
+
+.text-light {
+    color: #f1f1f1 !important;
+}
+
+.forum-section {
+    margin-bottom: 50px;
+}
+
+.forum-section h2 {
+    border-bottom: 2px solid #fff;
+    padding-bottom: 10px;
+}
+
+.forum-section h5 {
+    font-weight: 600;
+}
+
+.forum-section p {
+    font-weight: 400;
+    color: #ccc;
+}
+
+.forum-section small {
+    color: #888;
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raiting Tables</title>
+  <link rel="stylesheet" href="./styles/bootstrap.min.css">
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/adaptive.css">
+  <link rel="stylesheet" href="./styles/forum.css"> <!-- Стили из форума! -->
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-body">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./index.html">
+        <img src="/images/logo.png" width="40px" height="40px" class="my-logo">
+      </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+            aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Информация об игре
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                      <li><a class="dropdown-item" href="./index.html#nav-hero">Герои</a></li>
+                        <li><a class="dropdown-item" href="./news.html">Описания обновлений</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                    </ul>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Карты
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                      <li><a class="dropdown-item" href="./maps.html">Локация метро</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                    </ul>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="./news.html">Новости</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Сообщество
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                        <li><a class="dropdown-item" href="./forum.html">Форумы</a></li>
+                        <li><a class="dropdown-item" href="./tables.html">Рейтинговые таблицы</a></li>
+                        <li><a class="dropdown-item" href="./invited.html">Пригласи друга</a></li>
+                        <li><a class="dropdown-item" href="./loyalty.html">Программа поддержки</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                    </ul>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Магазин
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                        <li><a class="dropdown-item" href="./shop.html">Внутриигровой контент</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="./merch.html">Сувенирная продукция</a></li>
+                    </ul>
+
+                </li>
+            </ul>
+            <button class="btn btn-dark">
+                <a class="text-light fw-bold" href="./game-main/index.html">Играть</a>
+            </button>
+        </div>
+    </div>
+</nav>
+
+  <main>
+    <div class="container">
+      <h1 class="text-center mt-5 text-light fw-bold">Рейтинговые таблицы</h1>
+      <div class="forum-section">
+        <h2 class="text-center mt-5 text-light fw-bold">Таблица лидеров по уровню</h2>
+        <p class="text-center text-light">Здесь отображены лучшие игроки по уровню.</p>
+        <!-- Таблица лидеров по уровню -->
+        <table class="table table-dark table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Имя игрока</th>
+              <th scope="col">Уровень</th>
+              <th scope="col">Очки</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Игрок 1</td>
+              <td>50</td>
+              <td>1000</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Игрок 2</td>
+              <td>45</td>
+              <td>950</td>
+            </tr>
+            <!-- Дополнительные строки -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="forum-section">
+        <h2 class="text-center mt-5 text-light fw-bold">Таблица лидеров по очкам</h2>
+        <p class="text-center text-light">Здесь отображены лучшие игроки по количеству очков.</p>
+        <!-- Таблица лидеров по очкам -->
+        <table class="table table-dark table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Имя игрока</th>
+              <th scope="col">Уровень</th>
+              <th scope="col">Очки</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Игрок 3</td>
+              <td>40</td>
+              <td>2000</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Игрок 4</td>
+              <td>35</td>
+              <td>1800</td>
+            </tr>
+            <!-- Дополнительные строки -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="./scripts/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

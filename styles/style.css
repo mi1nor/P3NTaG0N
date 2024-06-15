@@ -19,7 +19,7 @@ body {
     justify-content: center;
 }
 
-.block-info>img {
+.block-info > img {
     display: block;
     border-radius: 30px;
     width: 500px;
@@ -47,6 +47,11 @@ a {
     color: #6C757D;
 }
 
+.my-card {
+    border-radius: 30px;
+    width: 90%;
+}
+
 /* BUTTON ON CAROUSEL */
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:900i');
@@ -61,7 +66,6 @@ a {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
-    /* Убедитесь, что кнопка находится поверх изображений */
 }
 
 .cta {
@@ -107,6 +111,10 @@ span:nth-child(2) {
     top: 12%;
 }
 
+.my-logo {
+    margin-left: 10px;
+}
+
 /**************SVG****************/
 
 path.one {
@@ -149,3 +157,13 @@ path.two {
     }
 }
 
+/* Отзывы */
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}

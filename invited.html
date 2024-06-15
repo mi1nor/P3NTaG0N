@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invite a friend</title>
+  <link rel="stylesheet" href="./styles/bootstrap.min.css">
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/adaptive.css">
+  <link rel="stylesheet" href="./styles/invited.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-body">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./index.html">
+        <img src="/images/logo.png" width="40px" height="40px" class="my-logo">
+      </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+            aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Информация об игре
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                      <li><a class="dropdown-item" href="./index.html#nav-hero">Герои</a></li>
+                        <li><a class="dropdown-item" href="./news.html">Описания обновлений</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                    </ul>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Карты
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                      <li><a class="dropdown-item" href="./maps.html">Локация метро</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                    </ul>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="./news.html">Новости</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Сообщество
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                        <li><a class="dropdown-item" href="./forum.html">Форумы</a></li>
+                        <li><a class="dropdown-item" href="./tables.html">Рейтинговые таблицы</a></li>
+                        <li><a class="dropdown-item" href="./invited.html">Пригласи друга</a></li>
+                        <li><a class="dropdown-item" href="./loyalty.html">Программа поддержки</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                    </ul>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Магазин
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                        <li><a class="dropdown-item" href="./shop.html">Внутриигровой контент</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="./merch.html">Сувенирная продукция</a></li>
+                    </ul>
+
+                </li>
+            </ul>
+            <button class="btn btn-dark">
+                <a class="text-light fw-bold" href="./game-main/index.html">Играть</a>
+            </button>
+        </div>
+    </div>
+</nav>
+  <main>
+    <div class="container">
+      <h1 class="text-center mt-5 text-light fw-bold">Пригласи друга</h1>
+      <div class="invite-friend-section">
+        <h2 class="text-center mt-5 text-light fw-bold">Пригласи друга в игру и получи бонусы!</h2>
+        <p class="text-center text-light">Поделись ссылкой с другом и получи бонусы за его регистрацию и активность в игре</p>
+        <!-- Форма для приглашения друга -->
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <form>
+              <div class="mb-3">
+                <label for="friendEmail" class="form-label text-light">Email друга</label>
+                <input type="email" class="form-control" id="friendEmail" aria-describedby="emailHelp" required>
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label text-light">Сообщение</label>
+                <textarea class="form-control" id="message" rows="3"></textarea>
+              </div>
+              <div class="d-flex justify-content-center align-items-center">
+                <button type="submit" class="btn btn-primary fw-bold">Пригласить</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- Дополнительное содержимое -->
+        <div class="row mt-5">
+          <div class="col-md-6 offset-md-3">
+            <div class="text-center">
+              <h3 class="text-light">Получай бонусы за активность друга!</h3>
+              <p class="text-light">Когда друг зарегистрируется по твоей ссылке и начнет активно играть, ты будешь получать бонусы, которые сможешь обменять на эксклюзивные предметы в игре</p>
+              <!-- Анимированное сердечко -->
+               <div class="d-flex justify-content-center align-items-center">
+                <div class="animated-heart">&#10084;</div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="./scripts/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

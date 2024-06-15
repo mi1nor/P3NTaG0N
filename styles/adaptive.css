@@ -1,12 +1,12 @@
 @media (max-width: 1200px) {
-    .block-info>img {
+    .block-info > img {
         width: 400px;
         height: 400px;
     }
 }
 
 @media (max-width: 1000px) {
-    .block-info>img {
+    .block-info > img {
         width: 300px;
         height: 300px;
     }
@@ -23,17 +23,27 @@
 
     .cta {
         font-size: 20px;
-        /* Уменьшаем размер шрифта на 50% */
         padding: 5px 22.5px;
-        /* Уменьшаем отступы на 50% */
     }
 
     .cta span:nth-child(2) {
         margin-left: 15px;
-        /* Уменьшаем отступ слева на 50% */
     }
 
     .my-img {
         margin: 50px;
+    }
+
+    .sm-footer {
+        font-size: 12px;
+    }
+    .my-card {
+        width: 70%;
+    }
+}
+
+@media (max-width: 500px) {
+    .sm-footer {
+        font-size: 8px;
     }
 }
