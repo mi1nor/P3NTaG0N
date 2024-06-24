@@ -1,9 +1,13 @@
+import { EnemyType } from "./Enums.js";
 Array.prototype.minBy = function (by) {
     let min = this[0];
     for (const element of this)
         if (by(element) < by(min))
             min = element;
     return min;
+};
+Array.prototype.clear = function () {
+    this.length = 0;
 };
 Math.clamp = function (n, min, max) {
     return Math.min(Math.max(n, min), max);
@@ -19,6 +23,7 @@ export class Color {
     static White = new Color(255, 255, 255, 255);
     static Black = new Color(0, 0, 0, 255);
     static Red = new Color(255, 0, 0, 255);
+    static Green = new Color(0, 255, 0);
     static Yellow = new Color(255, 255, 0, 255);
     static Transparent = new Color(0, 0, 0, 0);
     constructor(r, g, b, a = 255) {
@@ -78,69 +83,6 @@ export function GetIntersectPoint(line0, line1) {
 export function SquareMagnitude(x0, y0, x1, y1) {
     return (x0 - x1) ** 2 + (y0 - y1) ** 2;
 }
-export class GameObject {
-    _x = 0;
-    _y = 0;
-    _width;
-    _height;
-    _collider;
-    OnDestroy;
-    Tag;
-    constructor(width, height) {
-        this._width = width;
-        this._height = height;
-    }
-    Destroy() {
-        if (this.OnDestroy !== undefined)
-            this.OnDestroy();
-    }
-    GetPosition() {
-        return new Vector2(this._x, this._y);
-    }
-    GetSize() {
-        return new Vector2(this._width, this._height);
-    }
-    Update(dt) { }
-    Render() { }
-    GetCollider() {
-        return this._collider;
-    }
-    static IsCollide(who, other) {
-        const colliderWho = who.GetCollider();
-        const colliderOther = other.GetCollider();
-        return (colliderWho !== undefined &&
-            colliderOther !== undefined &&
-            who._x + colliderWho.Width > other._x &&
-            who._x < other._x + colliderOther.Width &&
-            who._y + colliderWho.Height > other._y &&
-            who._y < other._y + colliderOther.Height);
-    }
-    static GetCollide(who, other) {
-        if (this.IsCollide(who, other) === false)
-            return false;
-        const xstart = who._x + who._width - other._x;
-        const xend = other._x + other._width - who._x;
-        const ystart = other._y + other._height - who._y;
-        const yend = who._y + who._height - other._y;
-        let xOffset = 0;
-        let yOffset = 0;
-        if (xstart > 0 && xend > 0 && xend < other._width && xstart < other._width)
-            xOffset = 0;
-        else if (xstart > 0 && (xend < 0 || xstart < xend))
-            xOffset = xstart;
-        else if (xend > 0)
-            xOffset = -xend;
-        if (ystart > 0 && yend > 0 && yend < other._height && ystart < other._height)
-            yOffset = 0;
-        else if (ystart > 0 && (yend < 0 || ystart < yend))
-            yOffset = ystart;
-        else if (yend > 0)
-            yOffset = -yend;
-        if (xOffset == 0 && yOffset == 0)
-            return false;
-        return { instance: other, position: new Vector2(xOffset, yOffset) };
-    }
-}
 export class Vector2 {
     X;
     Y;
@@ -157,40 +99,20 @@ export class Vector2 {
     GetLength() {
         return Math.sqrt(this.X ** 2 + this.Y ** 2);
     }
+    static Sub(a, b) {
+        return new Vector2(a.X - b.X, a.Y - b.Y);
+    }
 }
-export function LoadImage(source, boundingBox, scale) {
-    const img = new Image();
-    img.src = source;
-    boundingBox ??= new Rectangle(0, 0, img.naturalWidth, img.naturalHeight);
-    scale ??= 1;
-    return {
-        Image: img,
-        BoundingBox: boundingBox,
-        Scale: scale,
-        ScaledSize: new Vector2(boundingBox.Width * scale, boundingBox.Height * scale),
-    };
+export function GetEnemyTypeName(enemyType) {
+    switch (enemyType) {
+        case EnemyType.Rat:
+            return "Крыса";
+        case EnemyType.Yellow:
+            return "Боец ВДНХ";
+        case EnemyType.Red:
+            return "Боец Ганза";
+        case EnemyType.Green:
+            return "Боец Ордена";
+    }
 }
-export function LoadSound(source) {
-    const s = new Audio(source);
-    return {
-        Speed: 1,
-        Volume: 1,
-        Play: function (volume, speed) {
-            if (volume === undefined && speed === undefined)
-                s.cloneNode().play();
-            else {
-                const c = s.cloneNode();
-                c.volume = volume ?? this.Volume;
-                c.playbackRate = speed ?? this.Speed;
-                c.play();
-            }
-        },
-        Apply: function () {
-            s.volume = this.Volume;
-            s.playbackRate = this.Speed;
-        },
-        PlayOriginal: function () {
-            s.play();
-        },
-    };
-}
+//# sourceMappingURL=Utilites.js.map

@@ -1,21 +1,44 @@
-import { Quest } from "../../Quest.js";
-import { GameObject } from "../../Utilites.js";
+import { Scene } from "../../Scene.js";
+import { Interactable } from "../GameObject.js";
 
-export class Character extends GameObject {
-	protected _dialogLength = -1;
-	protected _dialogState: number | null = 0;
+export class Character extends Interactable {
+	protected _completedQuests = 0;
+	private _isTalked = false;
 
 	public GetDialog(): Dialog {
+		this._isTalked = true;
+
 		return;
 	}
 
-	public static IsTalked() {
-		return false;
+	public IsTalked() {
+		return this._isTalked;
+	}
+
+	GetInteractives(): string[] {
+		return ["говорить"];
+	}
+
+	OnInteractSelected(id: number): void {
+		switch (id) {
+			case 0:
+				Scene.Player.SpeakWith(this);
+				break;
+		}
+	}
+
+	public GetCompletedQuestsCount() {
+		return this._completedQuests;
+	}
+
+	public GetName() {
+		return "НЕКТО";
 	}
 }
 
 export type Dialog = {
-	State: number;
 	Messages: string[];
-	Quest?: Quest;
+	AfterAction?: () => void;
+	Owner: Character;
+	OwnerFirst: boolean;
 };

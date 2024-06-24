@@ -1,0 +1,48 @@
+{
+	"GameObjects": [
+		{
+			"Type": "SpotLightSpawner",
+			"Arguments": []
+		},
+		{
+			"Type": "TextButton",
+			"Arguments": [750, 375, 200, 50, "НАЧАТЬ", 32],
+			"Action": {
+				"Type": "LoadScene",
+				"Source": "Assets/Scenes/Intro.json"
+			}
+		},
+		{
+			"Type": "TextButton",
+			"Arguments": [750, 435, 150, 40, "ТИТРЫ", 24],
+			"Action": {
+				"Type": "LoadScene",
+				"Source": "Assets/Scenes/Prolog.json"
+			}
+		},
+		{
+			"Type": "HintLabel",
+			"Arguments": ["1.0 Pre-Release", 750, 730]
+		},
+		{
+			"Type": "Image",
+			"Arguments": [50, 700, 50, 50, "TSLogo"]
+		},
+		{
+			"Type": "Image",
+			"Arguments": [125, 700, 50, 50, "EngineLogo"]
+		},
+		{
+			"Type": "Label",
+			"Arguments": ["© 2024 PENTAGON. Все права защищены.", 1330, 730, 50, 50]
+		},
+		{
+			"Type": "FPSCounter",
+			"Arguments": []
+		},
+		{
+			"Type": "Cursor",
+			"Arguments": []
+		}
+	]
+}

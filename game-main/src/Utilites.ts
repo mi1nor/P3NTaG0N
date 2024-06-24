@@ -1,8 +1,10 @@
-import { Tag } from "./Enums.js";
+import { EnemyType } from "./Enums.js";
+import { GameObject } from "./GameObjects/GameObject.js";
 
 declare global {
 	interface Array<T> {
 		minBy(by: (element: T) => number): T;
+		clear(): void;
 	}
 
 	interface Math {
@@ -16,6 +18,10 @@ Array.prototype.minBy = function <T>(this: T[], by: (element: T) => number): T {
 	for (const element of this) if (by(element) < by(min)) min = element;
 
 	return min;
+};
+
+Array.prototype.clear = function <T>(this: T[]): void {
+	this.length = 0;
 };
 
 Math.clamp = function (n: number, min: number, max: number) {
@@ -35,6 +41,7 @@ export class Color {
 	public static readonly White = new Color(255, 255, 255, 255);
 	public static readonly Black = new Color(0, 0, 0, 255);
 	public static readonly Red = new Color(255, 0, 0, 255);
+	public static readonly Green = new Color(0, 255, 0);
 	public static readonly Yellow = new Color(255, 255, 0, 255);
 	public static readonly Transparent = new Color(0, 0, 0, 0);
 
@@ -103,78 +110,6 @@ export function SquareMagnitude(x0: number, y0: number, x1: number, y1: number):
 	return (x0 - x1) ** 2 + (y0 - y1) ** 2;
 }
 
-export class GameObject {
-	protected _x = 0;
-	protected _y = 0;
-	protected _width: number;
-	protected _height: number;
-	protected _collider?: Rectangle;
-	public OnDestroy?: () => void;
-	public Tag?: Tag;
-
-	constructor(width: number, height: number) {
-		this._width = width;
-		this._height = height;
-	}
-
-	public Destroy() {
-		if (this.OnDestroy !== undefined) this.OnDestroy();
-	}
-
-	public GetPosition() {
-		return new Vector2(this._x, this._y);
-	}
-
-	public GetSize() {
-		return new Vector2(this._width, this._height);
-	}
-
-	public Update(dt: number) {}
-
-	public Render() {}
-
-	public GetCollider(): Rectangle | undefined {
-		return this._collider;
-	}
-
-	public static IsCollide(who: GameObject, other: GameObject): boolean {
-		const colliderWho = who.GetCollider();
-		const colliderOther = other.GetCollider();
-
-		return (
-			colliderWho !== undefined &&
-			colliderOther !== undefined &&
-			who._x + colliderWho.Width > other._x &&
-			who._x < other._x + colliderOther.Width &&
-			who._y + colliderWho.Height > other._y &&
-			who._y < other._y + colliderOther.Height
-		);
-	}
-
-	public static GetCollide(who: GameObject, other: GameObject): RaycastHit | false {
-		if (this.IsCollide(who, other) === false) return false;
-
-		const xstart = who._x + who._width - other._x;
-		const xend = other._x + other._width - who._x;
-		const ystart = other._y + other._height - who._y;
-		const yend = who._y + who._height - other._y;
-		let xOffset = 0;
-		let yOffset = 0;
-
-		if (xstart > 0 && xend > 0 && xend < other._width && xstart < other._width) xOffset = 0;
-		else if (xstart > 0 && (xend < 0 || xstart < xend)) xOffset = xstart;
-		else if (xend > 0) xOffset = -xend;
-
-		if (ystart > 0 && yend > 0 && yend < other._height && ystart < other._height) yOffset = 0;
-		else if (ystart > 0 && (yend < 0 || ystart < yend)) yOffset = ystart;
-		else if (yend > 0) yOffset = -yend;
-
-		if (xOffset == 0 && yOffset == 0) return false;
-
-		return { instance: other, position: new Vector2(xOffset, yOffset) };
-	}
-}
-
 export class Vector2 {
 	public readonly X: number;
 	public readonly Y: number;
@@ -196,11 +131,18 @@ export class Vector2 {
 	public GetLength(): number {
 		return Math.sqrt(this.X ** 2 + this.Y ** 2);
 	}
+
+	public static Sub(a: Vector2, b: Vector2) {
+		return new Vector2(a.X - b.X, a.Y - b.Y);
+	}
 }
 
 export type RaycastHit = {
 	instance: GameObject;
 	position: Vector2;
+	Normal: Vector2;
+	start?: Vector2;
+	end?: Vector2;
 };
 
 export type Sprite = {
@@ -210,54 +152,31 @@ export type Sprite = {
 	readonly Scale: number;
 };
 
-export function LoadImage(source: string, boundingBox?: Rectangle, scale?: number): Sprite {
-	const img = new Image();
-	img.src = source;
-
-	boundingBox ??= new Rectangle(0, 0, img.naturalWidth, img.naturalHeight);
-	scale ??= 1;
-
-	return {
-		Image: img,
-		BoundingBox: boundingBox,
-		Scale: scale,
-		ScaledSize: new Vector2(boundingBox.Width * scale, boundingBox.Height * scale),
-	};
-}
-
-export function LoadSound(source: string): Sound {
-	const s = new Audio(source);
-
-	return {
-		Speed: 1,
-		Volume: 1,
-		Play: function (volume?: number, speed?: number) {
-			if (volume === undefined && speed === undefined) (s.cloneNode() as HTMLAudioElement).play();
-			else {
-				const c = s.cloneNode() as HTMLAudioElement;
-				c.volume = volume ?? this.Volume;
-				c.playbackRate = speed ?? this.Speed;
-				c.play();
-			}
-		},
-		Apply: function () {
-			s.volume = this.Volume;
-			s.playbackRate = this.Speed;
-		},
-		PlayOriginal: function () {
-			s.play();
-		},
-	};
+declare global {
+	interface MouseEvent {
+		sourceCapabilities: { firesTouchEvents: boolean };
+	}
 }
 
 export type Sound = {
 	PlayOriginal: () => void;
 	Play: (volume?: number, speed?: number) => void;
 	Apply: () => void;
+	IsPlayingOriginal: () => boolean;
+	StopOriginal: () => void;
 	Speed: number;
 	Volume: number;
 };
 
-export interface IPickapable {
-	readonly OnPickup?: () => void;
+export function GetEnemyTypeName(enemyType: EnemyType) {
+	switch (enemyType) {
+		case EnemyType.Rat:
+			return "Крыса";
+		case EnemyType.Yellow:
+			return "Боец ВДНХ";
+		case EnemyType.Red:
+			return "Боец Ганза";
+		case EnemyType.Green:
+			return "Боец Ордена";
+	}
 }

@@ -15,26 +15,42 @@ export abstract class Enemy extends Entity {
 	}
 
 	protected IsSpotPlayer(): boolean {
-		const plrPos = Scene.Current.Player.GetPosition();
+		const plrPos = Scene.Current.Player.GetCenter();
+		const myPos = this.GetCenter();
 
-		const hit = Scene.Current.Raycast(new Vector2(this._x, this._y + 1), new Vector2(plrPos.X - this._x, plrPos.Y - this._y + 1), 1000, Tag.Player | Tag.Wall)[0];
+		const hit = Scene.Current.Raycast(myPos, Vector2.Sub(plrPos, myPos), 1000, Tag.Player | Tag.Wall)[0];
 
 		return hit !== undefined && hit.instance instanceof Player && hit.instance.IsAlive();
 	}
 
 	public Update(dt: number) {
-		this.ApplyVForce();
+		this.ApplyVForce(dt);
 
 		if (!this.IsSpotPlayer()) return;
 
-		const plrPos = Scene.Current.Player.GetPosition();
-		const plrSize = Scene.Current.Player.GetCollider();
+		const plrPos = Scene.Current.Player.GetCenter();
+		this.Direction = Math.sign(plrPos.X - (this._x + this.Width / 2)) as -1 | 1;
 
-		this.Direction = Math.sign(plrPos.X + plrSize.Width / 2 - (this._x + this._width / 2)) as -1 | 1;
+		if (this.GetDistanceToPlayer() < 50) {
+			if (Scene.Player.GetPosition().Y > this._y) {
+				this._movingDown = false;
+				this.Jump();
+			} else if (Scene.Player.GetPosition().Y < this._y) this._movingDown = true;
 
-		if (Math.abs(this._x - (plrPos.X + plrSize.Width / 2)) < 5) return;
+			return;
+		}
 
-		if (this.Direction == 1) this.MoveRight();
-		else this.MoveLeft();
+		if (this.Direction == 1) this.MoveRight(dt);
+		else this.MoveLeft(dt);
+	}
+
+	public GetDistanceToPlayer() {
+		const plr = Scene.Player.GetCenter();
+
+		return Math.abs(plr.X - (this._x + this.Width / 2));
+	}
+
+	public GetDirectionToPlayer(): -1 | 1 {
+		return Math.sign(Scene.Player.GetCenter().X - (this._x + this.Width / 2)) as -1 | 1;
 	}
 }
