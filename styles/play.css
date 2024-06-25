@@ -21,7 +21,7 @@ nav {
     display: flex;
     transform-style: preserve-3d;
     justify-content: space-evenly;
-    position: relative;
+    /* position: relative; */
     z-index: 2;
     margin: 0px auto;
     perspective: 2000px;
@@ -37,11 +37,11 @@ nav .menu-item {
     display: flex;
     flex-basis: var(--item-width);
     box-sizing: border-box;
-    padding: 1em 1.5em;
+    padding: 0.5em 1.5em;
     justify-content: center;
     perspective: 200px;
     letter-spacing: 0.5px;
-    min-height: 7.5em;
+    /* min-height: 7.5em; */
 }
 
 nav .menu-text,
@@ -159,7 +159,7 @@ nav .menu-item:nth-of-type(4):hover~#sub-menu-container #sub-menu-holder {
     clip-path: inset(0 0 0 0);
 }
 
-.menu-text:after {
+/* .menu-text:after {
     transition: bottom 0.25s ease-out, opacity 0.01s ease-out 0.01s;
     opacity: 0;
     content: '';
@@ -170,13 +170,13 @@ nav .menu-item:nth-of-type(4):hover~#sub-menu-container #sub-menu-holder {
     border-color: transparent transparent white transparent;
     border-width: 10px;
     border-style: solid;
-}
+} */
 
-.menu-item:hover .menu-text:after {
+/* .menu-item:hover .menu-text:after {
     bottom: 0.5em;
     opacity: 1;
     transition: bottom 0.25s ease-out, opacity 0.01s ease-out 0.15s;
-}
+} */
 
 .menu-item:hover .sub-menu {
     opacity: 1;
@@ -257,6 +257,7 @@ nav .menu-item:nth-of-type(4):hover~#sub-menu-container #sub-menu-holder {
     background: linear-gradient(45deg, #0c86ef, #0cef9b);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
+    background-clip: border-box;
     padding-left: 1px;
 }
 
